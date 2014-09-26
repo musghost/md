@@ -1,0 +1,45 @@
+<div id="main">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="column1">
+                <h3>Revisión rápida</h3>
+                <h4>Inicio</h4>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[0]" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event, 0)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+                <h4>Fin</h4>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[1]" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+                <h4>Proyecto</h4>
+                <div class="project">
+                    <input type="text" ng-model="selected" typeahead="state as state.title for state in states | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="selectedItem($item)">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox">
+                    <span>Tareas Internas</span>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox">
+                    <span>Mostrar enlaces a tareas</span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="addItem()">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" id="column2">
+            <ul class="item-container" ng-class="{'list' : layoutMode == 0}">
+                <li class="item" ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="removeItem(item)">{{item.title}}</li>
+            </ul>
+        </div>
+        <div class="col-md-3" id="column3">
+        </div>
+    </div>
+</div>
