@@ -13,6 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="styles/libs/site.min.css">
   </head>
   <body ng-app="manocoolApp">
     <!--[if lt IE 7]>
@@ -20,9 +21,34 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <header><h2>header</h2></header>
-    <div ng-view=""></div>
-    <footer><h2>footer</h2></footer>
+    <header ng-controller="HeaderCtrl">
+        <ul class="nav navbar-left">
+            <li><img src="http://manoderecha.mx/wp-content/uploads/2011/12/manoderecha-logo13.png"></li>
+        </ul>
+        <ul class="nav nav-pills navbar-right">
+            <li>
+                <div class="full-time" ng-morph-modal="settings">
+                    <span>09:00</span>
+                </div>
+            </li>
+            <li>
+                <div class="profile">
+                    <img src="images/avatar.png">
+                    <div>
+                        <div>
+                            <span>Alicia Ancona Reynolds</span>
+                        </div>
+                        <div>
+                            <span>29 Septiembre</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+        </ul>
+    </header>
+    <div ng-view="" id="main"></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -67,6 +93,7 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-morph/dist/angular-morph.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

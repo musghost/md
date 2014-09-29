@@ -38,24 +38,25 @@ angular.module('manocoolApp')
 			{ title: 'CalCtose Web Site [calctose]', id:'project'}
 		];
 		$scope.selectedItem = function($item){
-			alert($item.id);
+			console.log($item.id);
 		};
 		$scope.myObject = {
 			hola: 'mundo'
 		};
 		$scope.list = [];
 		$scope.isShow = true;
-		$scope.addItem = function (animation) {
+		$scope.addItem = function () {
 			$scope.animation = 'scale-fade';
 			$scope.list = [];
+			var tout = function () {
+					$scope.list.push({ title : 'item' });
+				};
 			for (var i = 0; i < 6; i++) {
-				$timeout(function () {
-					$scope.list.push({ title : "item" });
-				}, 40 * i);
-			};		
-		}
+				$timeout(tout , 40 * i);
+			}
+		};
 		$scope.removeItem = function (item) {
 			var index = $scope.list.indexOf(item);
 			$scope.list.remove(index);
-		}
+		};
 	});

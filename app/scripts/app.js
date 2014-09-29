@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngMorph'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -39,4 +40,12 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .controller('HeaderCtrl', function($scope){
+    $scope.settings = {
+       closeEl: '.close',
+       modal: {
+         templateUrl: 'views/modals/time.html'
+       }
+     };
   });

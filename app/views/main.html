@@ -1,16 +1,294 @@
-<div id="main">
-    <div class="row">
-        <div class="col-md-3">
-            <div id="column1">
-                <div class="search">
-                    <input type="text" ng-model="selected" typeahead="state as state.title for state in states | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="selectedItem($item)">
+<div class="row">
+    <div class="col-md-3">
+        <div id="column-1">
+            <div>
+                <div class="dropdown">
+                    <div class="time">
+                        <span>09:00</span>
+                    </div>
+                  <a data-toggle="dropdown" href=""><span class="glyphicon glyphicon-home"></span> Acciones</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Mi Espacio</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Panel del día</a>
+                            </li>
+                            <li>
+                                <a href="#">Tareas</a>
+                            </li>
+                            <li>
+                                <a href="#">Gastos por atender</a>
+                            </li>
+                            <li>
+                                <a href="#">Mis horas</a>
+                            </li>
+                            <li>
+                                <a href="#">Mis gastos</a>
+                            </li>
+                            <li>
+                                <a href="#">Preferencias</a>
+                            </li>
+                            <li>
+                                <a href="#">Cambiar contraseña</a>
+                            </li>
+                            <li>
+                                <a href="#">Salir</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Nuevo</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Tarea</a>
+                            </li>
+                            <li>
+                                <a href="#">Tarea Express</a>
+                            </li>
+                            <li>
+                                <a href="#">Gasto</a>
+                            </li>
+                            <li>
+                                <a href="#">Gasto exprés</a>
+                            </li>
+                            <li>
+                                <a href="#">Ticket</a>
+                            </li>
+                            <li>
+                                <a href="#">Minuta</a>
+                            </li>
+                            <li>
+                                <a href="#">Rspositorio</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Proyectos</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Plan de trabajo</a>
+                            </li>
+                            <li>
+                                <a href="#">Explorar</a>
+                            </li>
+                            <li>
+                                <a href="#">Panel de externos</a>
+                            </li>
+                            <li>
+                                <a href="#">Revisión rápida</a>
+                            </li>
+                            <li>
+                                <a href="#">Vista rápida de tareas</a>
+                            </li>
+                            <li>
+                                <a href="#">Línea del tiempo</a>
+                            </li>
+                            <li>
+                                <a href="#">Consulta de tiempos</a>
+                            </li>
+                            <li>
+                                <a href="#">Balance</a>
+                            </li>
+                            <li>
+                                <a href="#">Disponibilidad</a>
+                            </li>
+                            <li>
+                                <a href="#">Fechas comprometidas</a>
+                            </li>
+                            <li>
+                                <a href="#">SCRUM</a>
+                            </li>
+                            <li>
+                                <a href="#">Archivos</a>
+                            </li>
+                            <li>
+                                <a href="#">Minutas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Personas</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Explorar</a>
+                            </li>
+                            <li>
+                                <a href="#">Personas disponibles</a>
+                            </li>
+                            <li>
+                                <a href="#">Alarmas Generales</a>
+                            </li>
+                            <li>
+                                <a href="#">Entradas y salidas</a>
+                            </li>
+                            <li>
+                                <a href="#">Actividad a Detalle</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Explora</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Personas, proyectos y empresas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">Busca</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Tareas</a>
+                            </li>
+                            <li>
+                                <a href="#">Gastos</a>
+                            </li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Buscar acciones" ng-model="selected" typeahead="state as state.title for state in states | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="selectedItem($item)">
+            </div>
+            <hr>
+            <div class="tasks" ng-click="addItem()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="task-content">
+                            <div>
+                                <span class="glyphicon glyphicon-inbox init"></span>
+                            </div>
+                            <div>
+                                <div class="alarm alarm-bad">
+                                    <span>1</span>
+                                </div>
+                                <div class="hours">
+                                    <span>&lt; 24</span>
+                                </div>
+                            </div>
+                        
+                            <div>
+                                <div class="alarm alarm-good">
+                                    <span>1</span>
+                                </div>
+                                <div class="hours">
+                                    <span>&gt; 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="task-content">
+                            <div>
+                                <span class="glyphicon glyphicon-time init"></span>
+                            </div>
+                            <div>
+                                <div class="alarm">
+                                    <span>0</span>
+                                </div>
+                                <div class="hours">
+                                    <span>&lt; 24</span>
+                                </div>
+                            </div>
+                        
+                            <div>
+                                <div class="alarm">
+                                    <span>0</span>
+                                </div>
+                                <div class="hours">
+                                    <span>&gt; 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3" id="column2">
-
+    </div>
+    <div class="col-md-4">
+        <div id="column-2">
+            <div class="list-group"  ng-class="{'list' : layoutMode == 0}">
+                <div class="collapse" id="demo">
+                    <a href="#">Enviar reporte</a>
+                    <a href="#">Otra opción</a>
+                </div>
+                <a href="#" class="list-group-item"  ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="removeItem(item)">
+                    <h4 class="list-group-item-heading">
+                        <span class="bracket" style="display:inline-block">[.]</span>
+                        <span class="name-task" ng-click="showTask()" style="display:inline-block">Producción: No está apareciendo los logos ¡Favor de corregir!</span>
+                    </h4>
+                    <div>
+                        <span class="label label-primary">Bandeja</span>
+                        <span class="label label-success">Validada</span>
+                        <span>c: <span class="more">Septiembre 18</span></span>
+                        <span class="concept">i: <span class="more">?</span></span>
+                        <span class="concept">e: <span class="more">?</span></span>
+                    </div>
+                    <div>
+                        <span>S: <span class="more">Rivera Novelo, Genie (genie)</span></span>
+                        <span>R: <span class="more">Gómez Moncada Escalante, Fernando (fg)</span></span>
+                        <span>Agrupador: <span class="more">?</span></span>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="col-md-3" id="column3">
+    </div>
+    <div class="col-md-5">
+        <div id="column-3">
+            <ul class="tasks-list">
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-chevron-right"></span> [a] Producción: No está apareciendo los logos ¡Favor de corregir</a>
+                </li>
+            </ul>
+            <div class="task">
+                <div>
+                    <h3>Aeroméxico<span class="creation">4 Septiembre</span></h3>
+                    <span class="label label-default group">Mantenimiento</span>
+                    <div class="people">
+                        <div class="person">
+                            <h4>Alicia Ancona Reynolds</h4>
+                            <span>Solicitante</span>
+                        </div>
+                        <div class="person">
+                            <h4>Cidel Ortega Andrés</h4>
+                            <span>Responsable</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="states">
+                                <div class="state">
+                                    <span class="badge badge-primary">Aceptada</span>
+                                    <span class="label-state">Estado</span>
+                                </div>
+                                <div class="state">
+                                    <span class="label label-success">Prioridad</span>
+                                    <span class="label-state">Alta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="task-date">
+                                <div><a href="#">2014-04-29</a> <a href="#">11:45</a></div>
+                            </div>
+                            <span>Inicio</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="task-date">
+                                <div><a href="#">2014-04-29</a> <a href="#">11:45</a></div>
+                            </div>
+                            <span>Entrega</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="dependences">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

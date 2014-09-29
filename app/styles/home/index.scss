@@ -1,4 +1,273 @@
-#column1{
-	background: #dbdbdb;
-	padding: 0px 10px;
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+html, body{
+	height: 100%;
+	padding: 0 !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+header{
+	background: #434A54;
+	width: 100%;
+	height: 80px;
+	color: #fff;
+	float: left;
+}
+
+
+#main{
+	position: absolute;
+	height: auto;
+	width: 100%;
+	top: 80px;
+	bottom: 0px;
+	& > .row{
+		height: 100%;
+		margin: 0;
+		& > .col-md-3,
+		& > .col-md-4,
+		& > .col-md-5{
+			height: 100%;
+		}
+	}
+}
+#column-1{
+	width: 100%;
+	height: 100%;
+	background: #F5F7FA;
+	float: left;
+	padding: 0px 15px;
+	.my-panel{
+		.panel-title{
+			font-size: 15px;
+			border-bottom: 1px solid gray;
+		}
+		.panel-body h4{
+			font-size: 14px;
+			font-weight: normal;
+		}
+	}
+	.btn{
+		border-radius: 0;
+	}
+}
+#column-2{
+	width: 100%;
+	height: 100%;
+	float: left;
+	padding: 0px 15px;	
+	.list-group-item {
+		font-size: 12px;
+		h4{
+			font-size: 12px;
+			color: #3BAFDA;
+			font-weight: 300;
+		}
+		.name-task{
+			text-decoration: underline;
+		}
+		.bracket {
+			color: #656D78;
+			font-size: 15px;
+		}
+		.label-success{
+			background: none!important;
+			border: 1px solid #8CC152;
+			color: rgba(95, 128, 60, 1);
+		}
+	}
+	.more{
+		color: #434A54;
+	}
+	.label{
+		border-radius: 0;
+	}
+}
+#column-3{
+	width: 100%;
+	height: 100%;
+	background: rgba(241, 249, 255, 1);
+	float: left;
+	padding: 0px 15px;	
+	color: #274359;
+}
+
+
+#main input{
+
+}
+
+
+
+.new-tasks{
+	text-align: center;
+	h3{
+		background: #4FC1E9; 
+		color: #fff;
+		font-weight: 200;
+	}
+	.center{
+
+	}
+}
+.tasks{
+	text-align: center;
+	cursor: pointer;
+	padding: 15px 0;
+	.init{
+		font-size: 34px;
+	}
+	.task-content{
+		overflow: hidden;
+		& > div{
+			float: left;
+			margin-left: 15px;
+		}
+	}
+	.alarm{
+		span{
+		 	display: inline-block;
+		 	width: 22px;
+		 	height: 22px;
+		 	border-radius: 5px;
+		}
+	}
+	.alarm-bad{
+		span{
+			background: #DA4453;
+			color: #fff;
+		}
+	}
+	.alarm-good{
+		span {
+			background: #8CC152;
+			color: #fff;
+		}
+	}
+	.hours{
+		font-size: 12px;
+	}
+	&:hover {
+		background: #AAB2BD;
+		color: #F5F7FA;
+	}
+}
+.navbar-right{
+	margin-top: 15px;
+}
+.full-time{
+	font-size: 20px;
+
+}
+
+.overlay {
+	color: #F0F1F0;
+	font-size: 20px;
+	text-align: left;
+	background: #1BBA9A;
+	.inside{
+		padding: 20px;
+	}
+}
+.profile{
+	overflow: hidden;
+	width: 280px;
+	padding: 5px 15px;
+	cursor: pointer;
+	img{
+		border-radius: 50%;
+		max-width: 40px;
+		float: left;
+		margin-right: 15px;
+	}
+	& > div{
+		display: inline-block;
+	}
+
+	&:hover{
+		background: #000;
+		border-radius: 3px;
+	}
+}
+.task {
+	.people {
+		overflow: hidden;
+		.person{
+			float: left;
+			width: 50%;
+			min-height: 1px;
+		}
+		h4{
+			margin-bottom: 0;
+			font-weight: 300;
+		}
+		span{
+			color: #87A2B6;
+		}
+		hr{
+			margin: 10px 0;
+		}
+	}
+	h3{
+		margin-bottom: 0;
+		font-weight: 300;
+		.creation{
+			float: right;
+			color: #87A2B6;
+			font-size: 12px;
+			margin-top: 10px;
+		}
+	}
+	.group{
+		font-weight: 400;
+		font-size: 11px;
+	}
+	.states{
+		overflow: hidden;
+		.state {
+			float: left;
+			.badge, .label{
+				display: block;
+			}
+			& + .state{
+				margin-left: 10px;
+			}
+			.label-state{
+				color: #87A2B6;
+			}
+			.label + .label-state{
+				margin-top: 2px;
+				display: inline-block;
+			}
+		}
+	}
+	.task-date{
+		line-height: 17px;
+		a{
+			color: #00A7E0;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		& + span{
+			color: #87A2B6;
+		}
+	}
+}
+.tasks-list{
+	padding: 0;
+	margin: 0;
+	li{
+		padding: 0;
+		list-style: none;
+		margin: 0;
+	}
+	a{
+		color: #36434a;
+	}
 }

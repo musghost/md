@@ -8,7 +8,7 @@
  * Controller of the manocoolApp
  */
 	angular.module('manocoolApp')
-	.controller('MainCtrl', function ($scope, $location) {
+	.controller('MainCtrl', function ($scope, $location, $timeout) {
 		$scope.selected = undefined;
 		$scope.states = [
 			{ title: 'Plan de trabajo', id:'plan-trabajo' },
@@ -28,5 +28,17 @@
 		];
 		$scope.selectedItem = function($item){
 			$location.path('/report/' + $item.id );
+		};
+		$scope.list = [];
+		$scope.isShow = true;
+		$scope.addItem = function () {
+			$scope.animation = 'scale-fade';
+			$scope.list = [];
+			var tout = function () {
+					$scope.list.push({ title : 'item' });
+				};
+			for (var i = 0; i < 6; i++) {
+				$timeout(tout , 40 * i);
+			}
 		};
 	});

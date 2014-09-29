@@ -8,6 +8,6 @@
  * Controller of the manocoolApp
  */
 angular.module('manocoolApp')
-	.controller('listCtrl', function ($scope) {
+	.controller('listCtrl', function () {
 		
 	});

@@ -90,6 +90,7 @@ body {
     border-bottom: 0;
   }
 }
+@import "libs/angular-animation";
+@import "libs/site.min.css";
 
 @import "home/index";
-@import "libs/angular-animation";

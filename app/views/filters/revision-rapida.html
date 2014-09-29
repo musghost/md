@@ -1,67 +1,71 @@
-<div id="main">
-    <div class="row">
-        <div class="col-md-3">
-            <div id="column1">
-                <h3>Revisión rápida</h3>
-                <h4>Inicio</h4>
-                <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[0]" ng-required="true" close-text="Close" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event, 0)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
-                <h4>Fin</h4>
-                <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[1]" ng-required="true" close-text="Close" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
-                <h4>Proyecto</h4>
-                <div class="project">
-                    <input type="text" ng-model="selected" typeahead="state as state.title for state in states | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="selectedItem($item)">
-                </div>
-                <div class="form-group">
-                    <input type="checkbox">
-                    <span>Tareas Internas</span>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox">
-                    <span>Mostrar enlaces a tareas</span>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" ng-click="addItem()">Buscar</button>
-                </div>
+<div class="row">
+    <div class="col-md-3">
+        <div id="column-1">
+            <h3>Revisión rápida</h3>
+            <h4>Inicio</h4>
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[0]" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event, 0)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+            <h4>Fin</h4>
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="calendars[1]" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+            <h4>Proyecto</h4>
+            <div class="project">
+                <input type="text" ng-model="selected" typeahead="state as state.title for state in states | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="selectedItem($item)">
+            </div>
+            <div class="form-group">
+                <input type="checkbox">
+                <span>Tareas Internas</span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox">
+                <span>Mostrar enlaces a tareas</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="addItem()">Buscar</button>
             </div>
         </div>
-        <div class="col-md-4" id="column2">
-            <p>
-                <a href="#">Enviar por email..</a>
-            </p>
-            <ul class="item-container" ng-class="{'list' : layoutMode == 0}">
-                <li class="item" ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="removeItem(item)">
-                    <div>
-                        <div>
-                            <span>[.]</span>
-                            <a href="#" ng-click="showTask()">Producción: No está apareciendo los logos ¡Favor de corregir!</a>
+    </div>
+    <div class="col-md-4" id="column2">
+        <div id="column-2">
+                    <div class="list-group"  ng-class="{'list' : layoutMode == 0}">
+                        <div class="">
+                            <a href="#" data-toggle="collapse" data-target="#demo">
+                                <span class="glyphicon glyphicon-plus-sign" ></span>Opciones
+                            </a>
                         </div>
-                        <div>
-                            <span>Urgente</span>
-                            <span>Validada</span>
-                            <span>c: Septiembre 18</span>
-                            <span>i: ?</span>
-                            <span>e: ?</span>
+                        <div class="collapse" id="demo">
+                            <a href="#">Enviar reporte</a>
+                            <a href="#">Otra opción</a>
                         </div>
-                        <div>
-                            <span>S: Rivera Novelo, Genie (genie)</span>
-                            <span>R: Gómez Moncada Escalante, Fernando (fg)</span>
-                            <span>Agrupador: ?</span>
-                        </div>
+                        <a href="#" class="list-group-item"  ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="removeItem(item)">
+                            <h4 class="list-group-item-heading">
+                                <span class="bracket" style="display:inline-block">[.]</span>
+                                <span class="name-task" ng-click="showTask()" style="display:inline-block">Producción: No está apareciendo los logos ¡Favor de corregir!</span>
+                            </h4>
+                            <div>
+                                <span class="label label-primary">Bandeja</span>
+                                <span class="label label-success">Validada</span>
+                                <span>c: <span class="more">Septiembre 18</span></span>
+                                <span class="concept">i: <span class="more">?</span></span>
+                                <span class="concept">e: <span class="more">?</span></span>
+                            </div>
+                            <div>
+                                <span>S: <span class="more">Rivera Novelo, Genie (genie)</span></span>
+                                <span>R: <span class="more">Gómez Moncada Escalante, Fernando (fg)</span></span>
+                                <span>Agrupador: <span class="more">?</span></span>
+                            </div>
+                        </a>
                     </div>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-5" id="column3">
-        </div>
+                </div>
+    </div>
+    <div class="col-md-5" id="column3">
     </div>
 </div>
