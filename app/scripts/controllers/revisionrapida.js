@@ -59,4 +59,8 @@ angular.module('manocoolApp')
 			var index = $scope.list.indexOf(item);
 			$scope.list.remove(index);
 		};
+		$scope.task = false;
+		$scope.showTask = function(){
+			$scope.task = true;
+		};
 	});

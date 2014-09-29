@@ -1,4 +1,20 @@
-
+.ng-isolate-scope {
+	color: #fff;
+	.btn{
+		border: 0;
+		background: none;
+		color: #fff;
+	}
+	.btn-info, .btn-info.active, .btn-info.disabled, .btn-info:active, .btn-info[disabled]{
+		background: #e6e9ed;
+		color: #434a54;
+	}
+	.btn-group{
+		.btn-info, .btn-danger{
+			background: none;
+		}
+	}
+}
 
 /* ==========================================================================
    Author's custom styles
@@ -55,6 +71,32 @@ header{
 	.btn{
 		border-radius: 0;
 	}
+	.time{
+		margin-bottom: 10px;
+		h3{
+			font-weight: 300;
+		}
+		.time-label{
+			color: #87A2B6;
+			text-align: center;
+		}
+		.time-clock{
+			font-size: 14px;
+			text-align: center;
+		}
+	}
+	.md-panel{
+		padding: 0 10px;
+		h3{
+			font-weight: 300;
+			margin-bottom: 0;
+		}
+		&:hover{
+			background: #AAB2BD;
+			color: #F5F7FA; 
+			cursor: pointer;
+		}
+	}
 }
 #column-2{
 	width: 100%;
@@ -64,9 +106,9 @@ header{
 	.list-group-item {
 		font-size: 12px;
 		h4{
-			font-size: 12px;
+			font-size: 13px;
 			color: #3BAFDA;
-			font-weight: 300;
+			font-weight: 400;
 		}
 		.name-task{
 			text-decoration: underline;
@@ -91,10 +133,11 @@ header{
 #column-3{
 	width: 100%;
 	height: 100%;
-	background: rgba(241, 249, 255, 1);
+	background: #FAFDFF;
 	float: left;
 	padding: 0px 15px;	
 	color: #274359;
+	overflow-y: scroll;
 }
 
 
@@ -257,6 +300,88 @@ header{
 		& + span{
 			color: #87A2B6;
 		}
+	}
+	.dependences{
+		h4{
+			font-weight: 300;
+			margin-top: 0;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			font-size: 13px;
+			li{
+				list-style: none;
+				margin: 0 0 5px;
+				position: relative;
+				padding-bottom: 1px;
+				&:hover{
+					border-bottom: 1px solid #4FC1E9;
+					padding-bottom: 0;
+				}
+				&:hover .remove-task{
+					display: block;
+				}
+			}
+			.badge{
+				font-size: 12px;
+				padding: 0 4.5px;
+			}
+		}
+		a{
+			display: block;
+		}
+		.responsable{
+			color: #87A2B6;
+			font-size: 13px;
+		}
+		.remove-task{
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+	.comments{
+		h4{
+			font-weight: 300;
+		}
+		.media{
+			img{
+				border-radius: 50%;
+				max-width: 50px;
+			}
+			p{
+				font-size: 13px;
+				margin-bottom: 5px;
+			}
+			h5{
+				margin-bottom: 0;
+				& + p{
+					font-size: 12px;
+				}
+			}
+			h5{
+				font-weight: 300;
+			}
+		}
+		.show-more{
+			text-align: center;
+			font-size: 13px;
+		}
+	}
+}
+.actions{
+	padding: 0 10px;
+	h3{
+		font-weight: 300;
+		cursor: pointer;
+		margin-top: 10px;
+	}
+}
+.md-form{
+	h3, h4{
+		font-weight: 300;
 	}
 }
 .tasks-list{
