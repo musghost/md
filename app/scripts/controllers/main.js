@@ -31,9 +31,43 @@
 		};
 		$scope.list = [];
 		$scope.isShow = true;
+		$scope.task = false;
+		$scope.taskAnimate = 'rotate-in';
+		$scope.showOptions = false;
+		$scope.operations = false;
+		$scope.dependences = false;
+
+		$scope.columns = {
+			one: {
+				show: true,
+				cssClass: 'col-md-3'
+			},
+			two: {
+				show: true,
+				cssClass: 'col-md-4'
+			},
+			three: {
+				show: true,
+				cssClass: 'col-md-5'
+			},
+			four: {
+				show: false,
+				cssClass: 'col-md-4'
+			}
+		};
+		$scope.showTask = function(){
+			$scope.task = true;
+		};
+		$scope.showOperations = function(){
+			$scope.operations = true;
+		};
+		$scope.showDependences = function(){
+			$scope.dependences = true;
+		};
 		$scope.addItem = function () {
-			$scope.animation = 'scale-fade';
+			$scope.animation = 'flip-in';
 			$scope.list = [];
+			$scope.showOptions = true;
 			var tout = function () {
 					$scope.list.push({ title : 'item' });
 				};
@@ -41,4 +75,15 @@
 				$timeout(tout , 40 * i);
 			}
 		};
+		$scope.showOtherTask = function(){
+			$scope.columns.one.show = false;
+			$scope.columns.three.cssClass = 'col-md-4';
+			$scope.columns.four.show = true;
+		};
+		$scope.removeFourthTask = function(){
+			$scope.columns.one.show = true;
+			$scope.columns.three.cssClass = 'col-md-5';
+			$scope.columns.four.show = false;
+		};
+
 	});

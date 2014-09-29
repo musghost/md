@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3">
+    <div ng-class="columns.one.cssClass" ng-show="columns.one.show">
         <div id="column-1">
             <div>
                 <div class="time">
@@ -237,14 +237,30 @@
             <hr>
         </div>
     </div>
-    <div class="col-md-4">
+    <div ng-class="columns.two.cssClass" ng-show="columns.two.show">
         <div id="column-2">
             <div class="list-group"  ng-class="{'list' : layoutMode == 0}">
-                <div class="collapse" id="demo">
+                <div class="task-options" ng-show="showOptions">
                     <a href="#">Enviar reporte</a>
-                    <a href="#">Otra opción</a>
+                    <span class="dropdown">
+                      <a href class="dropdown-toggle">
+                        Filtro
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Por proyecto</a>
+                        </li>
+                        <li>
+                            <a href="#">Reponsable</a>
+                        </li>
+                        <li>
+                            <a href="#">Agrupador</a>
+                        </li>
+                      </ul>
+                    </span>
+                    <a href="#">Orden</a>
                 </div>
-                <a href="#" class="list-group-item"  ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="removeItem(item)">
+                <a class="list-group-item"  ng-show="isShow" ng-class="animation" ng-repeat="item in list" ng-click="showTask()">
                     <h4 class="list-group-item-heading">
                         <span class="bracket" style="display:inline-block">[.]</span>
                         <span class="name-task" ng-click="showTask()" style="display:inline-block">Producción: No está apareciendo los logos ¡Favor de corregir!</span>
@@ -265,20 +281,36 @@
             </div>
         </div>
     </div>
-    <div class="col-md-5">
+    <div ng-class="columns.three.cssClass" ng-show="columns.three.show">
         <div id="column-3">
             <ul class="tasks-list">
                 <li>
                     <a href="#"><span class="glyphicon glyphicon-chevron-right"></span> [a] Producción: No está apareciendo los logos ¡Favor de corregir</a>
                 </li>
             </ul>
-            <div class="task">
+            <div class="task" ng-show="task" ng-class="taskAnimate">
                 <div>
-                    <h3>Aeroméxico<span class="creation">4 Septiembre</span></h3>
+                    <h3 class="dropdown"><span class="dropdown-toggle">Aeroméxico</span><span class="creation">4 Septiembre</span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href ng-click="showDependences()">Dependencias</a>
+                            </li>
+                            <li>
+                                <a href ng-click="showOperations()">Visibilidad y operaciones</a>
+                            </li>
+                            <li>
+                                <a href>Tiempos</a>
+                            </li>
+                            <li>
+                                <a href>Histórico</a>
+                            </li>
+                        </ul>
+                    </h3>
+
                     <span class="label label-default group">Mantenimiento</span>
                     <div class="people">
                         <div class="person">
-                            <h4>Alicia Ancona Reynolds</h4>
+                            <h4>Cidel Ortega Andrés</h4>
                             <span>Solicitante</span>
                         </div>
                         <div class="person">
@@ -314,13 +346,13 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="dependences">
+                    <div class="dependences" ng-show="dependences" ng-class="slide-down">
                         <div class="row">
                             <div class="col-md-6">
                                 <h4><span class="glyphicon glyphicon-step-backward"></span>Tareas predecesoras</h4>
                                 <ul>
                                     <li>
-                                        <a href="#"><span class="badge badge-success">&nbsp;</span> Esta es una tarea sucesora</a>
+                                        <a href ng-click="showOtherTask()"><span class="badge badge-success">&nbsp;</span> Esta es una tarea sucesora</a>
                                         <span class="responsable">Cidel Ortega Andrés</span>
                                         <div class="remove-task">
                                             <span class="glyphicon glyphicon-remove"></span>
@@ -346,8 +378,57 @@
                                 <h4><span class="glyphicon glyphicon-step-forward"></span>Tareas sucesoras</h4>
                             </div>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
+                    <div class="operations" ng-show="operations">
+                        <h4>Visibilidad y operaciones</h4>
+                        <div class="options">
+                            <a href="#">Duplicar tarea</a>
+                            <a href="#">Nueva tarea, mismo Proyecto, Responsable y Solicitante</a>
+                        </div>
+                        <div class="people">
+                            <h5>Enviar notificación</h5>
+                            <ul>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
                     <div class="comments">
                         <h4>Comentarios</h4>
                         <ul class="media-list">
@@ -384,4 +465,186 @@
             </div>
         </div>
     </div>
+    <div ng-class="columns.four.cssClass" ng-show="columns.four.show" ng-class="taskAnimate">
+        <div id="column-4">
+            <div class="task" ng-show="task" ng-class="taskAnimate">
+                <div class="task-header-options">
+                    <span class="glyphicon glyphicon-remove" ng-click="removeFourthTask()"></span>
+                </div>
+                <div>
+                    <h3 class="dropdown"><span class="dropdown-toggle">Esta es otra tarea</span><span class="creation">4 Septiembre</span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href >Dependencias</a>
+                            </li>
+                            <li>
+                                <a href >Visibilidad y operaciones</a>
+                            </li>
+                            <li>
+                                <a href>Tiempos</a>
+                            </li>
+                            <li>
+                                <a href>Histórico</a>
+                            </li>
+                        </ul>
+                    </h3>
+
+                    <span class="label label-default group">Mantenimiento</span>
+                    <div class="people">
+                        <div class="person">
+                            <h4>Cidel Ortega Andrés</h4>
+                            <span>Solicitante</span>
+                        </div>
+                        <div class="person">
+                            <h4>Cidel Ortega Andrés</h4>
+                            <span>Responsable</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="states">
+                                <div class="state">
+                                    <span class="badge badge-primary">Aceptada</span>
+                                    <span class="label-state">Estado</span>
+                                </div>
+                                <div class="state">
+                                    <span class="label label-success">Prioridad</span>
+                                    <span class="label-state">Alta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="task-date">
+                                <div><a href="#">2014-04-29</a> <a href="#">11:45</a></div>
+                            </div>
+                            <span>Inicio</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="task-date">
+                                <div><a href="#">2014-04-29</a> <a href="#">11:45</a></div>
+                            </div>
+                            <span>Entrega</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="dependences" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><span class="glyphicon glyphicon-step-backward"></span>Tareas predecesoras</h4>
+                                <ul>
+                                    <li>
+                                        <a href><span class="badge badge-success">&nbsp;</span> Esta es una tarea sucesora</a>
+                                        <span class="responsable">Cidel Ortega Andrés</span>
+                                        <div class="remove-task">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span class="badge badge-success">&nbsp;</span> Recomendaciones para poder subir los datos de cada obra a WP SIN afectar el theme.  </a>
+                                        <span class="responsable">Cidel Ortega Andrés</span>
+                                        <div class="remove-task">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span class="badge badge-danger">&nbsp;</span> Esta es otra tarea sucesora</a>
+                                        <span class="responsable">Cidel Ortega Andrés</span>
+                                        <div class="remove-task">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4><span class="glyphicon glyphicon-step-forward"></span>Tareas sucesoras</h4>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="operations">
+                        <h4>Visibilidad y operaciones</h4>
+                        <div class="options">
+                            <a href="#">Duplicar tarea</a>
+                            <a href="#">Nueva tarea, mismo Proyecto, Responsable y Solicitante</a>
+                        </div>
+                        <div class="people">
+                            <h5>Enviar notificación</h5>
+                            <ul>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                                <li>
+                                    <button class="btn">
+                                        <span class="glyphicon glyphicon-volume-up"></span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <input type="checkbox">
+                                    <span>Cidel Ortega Andrés</span>
+                                </li>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <h4>Comentarios</h4>
+                        <ul class="media-list">
+                            <li class="media">
+                                <a class="pull-left" href="">
+                                    <img src="images/avatar.png" class="avatar">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading">Alicia Ancona Reynolds</h5>
+                                    <p>12 Septiembre</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a class="pull-left" href="">
+                                    <img src="images/mrfer.png" class="avatar">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading">Fernando Gómez Moncada</h5>
+                                    <p>12 Septiembre</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="show-more">
+                                    <a href="#">Cargar más...</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>
